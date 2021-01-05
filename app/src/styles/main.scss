@@ -1,0 +1,32 @@
+@import 'common/fonts.scss';
+@import 'common/root.scss';
+
+.icon{
+    &-facebook::before {
+        content: '\f39e';
+        font-size: 16px;
+        color: black;
+    }
+    &-insta::before {
+        content: '\f16d';
+        font-size: 16px;
+        color: black;
+    }
+    &-behanse::before{
+        content: '\f1b4';
+        font-size: 16px;
+        color: black;
+    }
+    &-bottom::before{
+        content: '\f107';
+        font-size: 16px;
+        color: black;
+    }
+}
+
+
+@import 'layout/header';
+@import 'layout/main';
+@import 'layout/footer';
+
+

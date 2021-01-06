@@ -1,32 +1,56 @@
 @import 'common/fonts.scss';
 @import 'common/root.scss';
 
-.icon{
+.icon {
     &-facebook::before {
         content: '\f39e';
         font-size: 16px;
         color: black;
     }
+
     &-insta::before {
         content: '\f16d';
         font-size: 16px;
         color: black;
     }
-    &-behanse::before{
+
+    &-behanse::before {
         content: '\f1b4';
         font-size: 16px;
         color: black;
     }
-    &-bottom::before{
+
+    &-down::before {
         content: '\f107';
         font-size: 16px;
-        color: black;
+        color: white;
     }
+
+    &-up::before {
+        content: '\f106';
+        font-size: 16px;
+        color: white;
+    }
+    &-phone::before {
+        content: '\f8d3';
+        font-size: 16px;
+        color: white;
+    }
+    &-location::before {
+        content: '\f3c5';
+        font-size: 16px;
+        color: white;
+    }
+    &-mail::before {
+        content: '\f0e0';
+        font-size: 16px;
+        color: white;
+    }
+    
+
 }
 
 
 @import 'layout/header';
 @import 'layout/main';
 @import 'layout/footer';
-
-

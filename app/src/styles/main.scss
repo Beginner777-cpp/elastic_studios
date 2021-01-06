@@ -1,6 +1,14 @@
 @import 'common/fonts.scss';
 @import 'common/root.scss';
 
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
 .icon {
     &-facebook::before {
         content: '\f39e';
@@ -31,26 +39,114 @@
         font-size: 16px;
         color: white;
     }
+
     &-phone::before {
         content: '\f8d3';
         font-size: 16px;
         color: white;
     }
+
     &-location::before {
         content: '\f3c5';
         font-size: 16px;
         color: white;
     }
+
     &-mail::before {
         content: '\f0e0';
         font-size: 16px;
         color: white;
     }
-    
+
 
 }
 
+/*==================================== carousel ===================================*/
 
-@import 'layout/header';
-@import 'layout/main';
-@import 'layout/footer';
+button {
+    background: none;
+    border: none;
+}
+
+button:hover {
+    cursor: pointer;
+
+}
+
+.carousel {
+    position: relative;
+}
+
+.carousel_pages {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.carousel_page {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 100%;
+    transition: 1s;
+}
+
+.carousel_page.active {
+    top: 0;
+    transition: 1s;
+}
+
+.carousel_indicators {
+    position: fixed;
+    right: 1%;
+    top: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.indicator {
+    width: 10px;
+    height: 10px;
+    background: grey;
+    border-radius: 50%;
+    margin-bottom: 5px;
+    transition: 1s;
+}
+
+.indicator:hover {
+    cursor: pointer;
+    background: rgb(70, 68, 68);
+}
+
+.indicator.active {
+    background: black;
+}
+
+.prev_btn {
+    margin-bottom: 5px;
+}
+
+.prev_btn::before {
+    content: "\f106";
+    color: black;
+    font-size: 20px;
+}
+
+.next_btn::before {
+    content: "\f107";
+    color: black;
+    font-size: 20px;
+}
+
+/*==================================== /carousel ===================================*/
+
+
+@import 'layout/header.scss';
+@import 'layout/main.scss';
+@import 'layout/footer.scss';

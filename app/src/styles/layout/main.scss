@@ -1,0 +1,15 @@
+@for $i from 1 through 10 {
+    .page#{$i} {
+        background: url('../images/page#{$i}_bg.webp');
+        background-repeat: no-repeat;
+        background-size:cover;
+        background-position: center center;
+        background-position-y: 20%;
+    }
+}
+
+.page11 {
+    background: black;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

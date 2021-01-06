@@ -1,0 +1,17 @@
+.header{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+}
+.header_nav{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 15px;
+}
+.header_nav_list{
+    display: flex;
+}
+.header_list_link{
+    margin: 0 50px;
+}

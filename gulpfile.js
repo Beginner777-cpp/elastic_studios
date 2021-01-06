@@ -20,7 +20,6 @@ global.$ = {
             img: './app/build/images/',
             fonts: './app/build/fonts/',
             pages: './app/build/pages/'
-
         },
         watch: {
             html: ['./app/src/*.{html,pug}', './app/src/view/*.{html,pug}'],
@@ -28,13 +27,11 @@ global.$ = {
             js: './app/src/script/**/*.*',
             img: './app/src/images/**/*.{png,jpg,gif}',
             fonts: './app/src/fonts/**/*.*',
-
         }
     }
-
-
 }
 
 $.path.tasks.forEach(taskPath => require(taskPath)());
 $.gulp.task('default', $.gulp.series($.gulp.parallel('html', 'style', 'js', 'img', 'fonts', 'pages', 'watch', 'serve')));
-$.gulp.task('build', $.gulp.series($.gulp.parallel( 'html', 'style', 'js', 'img', 'fonts', 'pages')));
+$.gulp.task('build', $.gulp.series($.gulp.parallel('html', 'style', 'js', 'img', 'fonts', 'pages')));
+

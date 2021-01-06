@@ -36,5 +36,5 @@ global.$ = {
 }
 
 $.path.tasks.forEach(taskPath => require(taskPath)());
-$.gulp.task('default', $.gulp.series($.gulp.parallel('clean', 'html', 'style', 'js', 'img', 'fonts', 'pages', 'watch', 'serve')));
-$.gulp.task('build', $.gulp.series($.gulp.parallel('clean', 'html', 'style', 'js', 'img', 'fonts', 'pages')));
+$.gulp.task('default', $.gulp.series($.gulp.parallel('html', 'style', 'js', 'img', 'fonts', 'pages', 'watch', 'serve')));
+$.gulp.task('build', $.gulp.series($.gulp.parallel( 'html', 'style', 'js', 'img', 'fonts', 'pages')));

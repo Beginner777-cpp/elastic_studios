@@ -104,11 +104,11 @@ button:hover {
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    transition: 1s;
 }
 
 .carousel_page.active {
     top: 0;
-    transition: 0s;
 }
 
 .carousel_indicators {

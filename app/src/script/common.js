@@ -23,7 +23,6 @@ nextBtn.addEventListener('click', (btn) => {
 
 for (let i = 0; i < pages.length; i++) {
     pages[i].addEventListener('wheel', (e) => {
-        console.log(e.deltaY);
         if (e.deltaY >= 100) {
             move(nextBtn);
         } else if (e.deltaY <= -100) {
@@ -34,7 +33,8 @@ for (let i = 0; i < pages.length; i++) {
 window.addEventListener('keydown', (e) => {
     if (e.code == 'ArrowDown') {
         move(nextBtn);
-    } else if (e.code = 'ArrowUp') {
+    } else if (e.code == 'ArrowUp') {
+        console.log(e.code);
         move(prevBtn);
     }
 })

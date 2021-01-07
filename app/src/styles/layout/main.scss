@@ -149,8 +149,8 @@
 }
 
 .page3_inner_content::before {
-    transform: rotate(-90deg) translateX(-53%) translateY(310px);
+    transform: rotate(-90deg) translateX(-52%) translateY(auto);
 }
-.page3_title::before{
-    transform: translateX(95%) translateY(0px);
+.page3_title{
+    align-items: flex-end;
 }

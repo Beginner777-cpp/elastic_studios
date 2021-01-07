@@ -101,7 +101,6 @@ button:hover {
     height: 100vh;
     border: 1px solid black;
     top: 100%;
-    transition: 1s;
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -109,7 +108,7 @@ button:hover {
 
 .carousel_page.active {
     top: 0;
-    transition: 1s;
+    transition: 0s;
 }
 
 .carousel_indicators {

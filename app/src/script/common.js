@@ -40,7 +40,7 @@ window.addEventListener('keydown', (e) => {
 })
 for (let i = 0; i < indicators.length; i++) {
     indicators[i].addEventListener('click', () => {
-        if (indicators[i].classList.contains('active')) { } else {
+        if (indicators[i].classList.contains('active')) {} else {
             if (i > activePage) {
                 for (let j = activePage; j < i; j++) {
                     move(nextBtn);
@@ -66,15 +66,14 @@ for (let i = 0; i < pages.length; i++) {
         if (i < pages.length) {
             if (change > 0 && i != pages.length - 1) {
                 pages[i + 1].style.transition = '0s';
-                pages[i + 1].style.top = `${screen.height - change}px`;
+                pages[i + 1].style.top = `${pages[i + 1].clientHeight - change}px`;
             } else {
                 if (i > 0) {
                     pages[i - 1].style.transition = '0s';
-                    pages[i - 1].style.top = `-${screen.height + change}px`;
+                    pages[i - 1].style.top = `-${pages[i - 1].clientHeight + change}px`;
                 }
             }
-        }
-        else {
+        } else {
 
         }
 
@@ -95,14 +94,12 @@ for (let i = 0; i < pages.length; i++) {
                         pages[i + 1].style.transition = '1s';
                         pages[i + 1].style.top = `100%`;
                     }
-                }
-                else {
+                } else {
                     pages[i].style.transition = '1s';
                     pages[i].style.top = `0`;
                 }
 
-            }
-            else {
+            } else {
                 if (i != 0) {
                     if (Math.abs(pages[i].offsetTop) > pages[i].clientHeight / 3) {
                         pages[i].style.transition = '1s';
@@ -115,15 +112,13 @@ for (let i = 0; i < pages.length; i++) {
                         pages[i - 1].style.transition = '1s';
                         pages[i - 1].style.top = `-100%`;
                     }
-                }
-                else {
+                } else {
                     pages[i].style.transition = '1s';
                     pages[i].style.top = `0`;
                 }
 
             }
-        }
-        else {
+        } else {
             pages[i].style.transition = '1s';
             pages[i].style.top = `0`;
         }

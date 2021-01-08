@@ -105,9 +105,9 @@
         <section class="book_date">
           <h1 class="date_title">When and where is the photoshoot?</h1>
           <div class="date_inputs">
-            <input type="date" placeholder="Select date"/>
-            <input type="time" placeholder="Select time"/>
-            <input type="text" placeholder="Enter the location address"/>
+            <input type="date" id="date" placeholder="Select date"/>
+            <input type="time" id="time" placeholder="Select time"/>
+            <input type="text" id="address" placeholder="Enter the location address"/>
           </div>
         </section>
         <section class="book_packages">
@@ -118,34 +118,67 @@
               <div class="price"> <img src="../images/currency.webp" alt=""/>30,000</div>
               <div class="packages_text">1 hour shoot</div>
               <div class="packages_text">Unlimited photos</div>
-              <div class="packages_text">Editing included</div><a class="select_btn" href="">Select</a>
+              <div class="packages_text">Editing included</div><a class="select_btn" href="#!">Select</a>
             </div>
             <div class="packages_item">
               <h1 class="packages_item-title">Standard</h1>
               <div class="price"> <img src="../images/currency.webp" alt=""/>50,000</div>
               <div class="packages_text">1 hour shoot</div>
               <div class="packages_text">Unlimited photos</div>
-              <div class="packages_text">Editing included</div><a class="select_btn" href="">Select</a>
+              <div class="packages_text">Editing included</div><a class="select_btn" href="#!">Select</a>
             </div>
             <div class="packages_item">
               <h1 class="packages_item-title">Premium</h1>
               <div class="price"> <img src="../images/currency.webp" alt=""/>80,000</div>
               <div class="packages_text">1 hour shoot</div>
               <div class="packages_text">Unlimited photos</div>
-              <div class="packages_text">Editing included</div><a class="select_btn" href="">Select</a>
+              <div class="packages_text">Editing included</div><a class="select_btn" href="#!">Select</a>
             </div>
           </div>
         </section>
         <section class="book_date">
           <h1 class="date_title">Kindly provide your contact details</h1>
           <div class="date_inputs">
-            <input type="text" placeholder="Enter full name"/>
-            <input type="number" placeholder="Enter phone number" min="0"/>
-            <input type="email" placeholder="Enter email address"/>
+            <input type="text" id="name" placeholder="Enter full name"/>
+            <input type="number" id="phone" placeholder="Enter phone number" min="0"/>
+            <input type="email" id="email" placeholder="Enter email address"/>
           </div>
         </section>
-        <div class="book_btns"><a class="book_btn" href="">Book now</a><a class="book_btn bookLater_btn" href="">Save and book later</a></div>
+        <div class="book_btns"><a class="book_btn" href="#!" id="book_now">Book now</a><a class="book_btn bookLater_btn" href="#!">Save and book later</a></div>
       </form>
     </main>
+    <script type="text/javascript">
+      var orders = document.querySelectorAll('.select_btn');
+      for(let i=0;i<orders.length;i++){
+          orders[i].addEventListener('click',()=>{
+              for(let j=0;j<orders.length;j++){
+                  if(orders[j].classList.contains('clicked')){
+                      orders[j].classList.remove('clicked');
+                  }
+              }
+              orders[i].classList.add('clicked');
+              
+          })
+      }
+      document.querySelector('#book_now').addEventListener('click', (e) => {
+      
+          var name = document.querySelector('#name').value;
+          var phone = document.querySelector('#phone').value;
+          var email = document.querySelector('#email').value;
+          var checked = document.querySelectorAll('.checkbox:checked~.checkbox_text');
+          console.log(checked);
+          var bookings =[];
+          for(let i=0;i<checked.length;i++){
+              bookings.push(checked[i].innerText);
+          }
+          var date = document.querySelector('#date').value;
+          var time = document.querySelector('#time').value;
+          var address = document.querySelector('#address').value;
+          var orderType = document.querySelector('.clicked');
+          console.log(orderType);
+          fetch(`https://api.telegram.org/bot1590540671:AAGFRSr8EGztvqNU00l99TvHZGKRwVohFUM/sendMessage?chat_id=-445060954_mode=html&text=${name} ${phone} ${email}`);
+      
+      })
+    </script>
   </body>
 </html>

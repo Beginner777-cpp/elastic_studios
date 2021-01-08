@@ -176,6 +176,13 @@ input {
     width: fit-content;
     margin: 0 auto;
     margin-top: 50px;
+    border: 2px solid transparent;
+    
+}
+.select_btn.clicked{
+    color: black;
+    background: transparent;
+    border: 2px solid #CCAF40;
 }
 .book_btns{
     display: flex;

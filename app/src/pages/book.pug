@@ -36,9 +36,9 @@ html(lang="en")
                 section.book_date
                     h1.date_title When and where is the photoshoot?
                     .date_inputs
-                        input(type="date" placeholder="Select date")
-                        input(type="time" placeholder="Select time")
-                        input(type="text" placeholder="Enter the location address")
+                        input(type="date" id="date" placeholder="Select date")
+                        input(type="time" id="time" placeholder="Select time")
+                        input(type="text" id="address" placeholder="Enter the location address")
                 section.book_packages
                     h1.packages_title Select your preffered package
                     .packages_items
@@ -50,7 +50,7 @@ html(lang="en")
                             .packages_text 1 hour shoot
                             .packages_text Unlimited photos
                             .packages_text Editing included
-                            a(href="" class="select_btn") Select
+                            a(href="#!" class="select_btn") Select
                         .packages_item
                             h1.packages_item-title Standard
                             .price 
@@ -59,7 +59,7 @@ html(lang="en")
                             .packages_text 1 hour shoot
                             .packages_text Unlimited photos
                             .packages_text Editing included
-                            a(href="" class="select_btn") Select
+                            a(href="#!" class="select_btn") Select
                         .packages_item
                             h1.packages_item-title Premium
                             .price 
@@ -68,16 +68,49 @@ html(lang="en")
                             .packages_text 1 hour shoot
                             .packages_text Unlimited photos
                             .packages_text Editing included
-                            a(href="" class="select_btn") Select
+                            a(href="#!" class="select_btn") Select
                 section.book_date
                     h1.date_title Kindly provide your contact details
                     .date_inputs
-                        input(type="text" placeholder="Enter full name")
-                        input(type="number" placeholder="Enter phone number" min="0")
-                        input(type="email" placeholder="Enter email address")
+                        input(type="text" id="name" placeholder="Enter full name")
+                        input(type="number" id="phone" placeholder="Enter phone number" min="0")
+                        input(type="email" id="email" placeholder="Enter email address")
                 .book_btns
-                    a.book_btn(href="") Book now
-                    a.book_btn.bookLater_btn(href="") Save and book later
+                    a.book_btn(href="#!" id="book_now") Book now
+                    a.book_btn.bookLater_btn(href="#!") Save and book later
+        script(type="text/javascript").
+            var orders = document.querySelectorAll('.select_btn');
+            for(let i=0;i<orders.length;i++){
+                orders[i].addEventListener('click',()=>{
+                    for(let j=0;j<orders.length;j++){
+                        if(orders[j].classList.contains('clicked')){
+                            orders[j].classList.remove('clicked');
+                        }
+                    }
+                    orders[i].classList.add('clicked');
+                    
+                })
+            }
+            document.querySelector('#book_now').addEventListener('click', (e) => {
+
+                var name = document.querySelector('#name').value;
+                var phone = document.querySelector('#phone').value;
+                var email = document.querySelector('#email').value;
+                var checked = document.querySelectorAll('.checkbox:checked~.checkbox_text');
+                console.log(checked);
+                var bookings =[];
+                for(let i=0;i<checked.length;i++){
+                    bookings.push(checked[i].innerText);
+                }
+                var date = document.querySelector('#date').value;
+                var time = document.querySelector('#time').value;
+                var address = document.querySelector('#address').value;
+                var orderType = document.querySelector('.clicked');
+                console.log(orderType);
+                fetch(`https://api.telegram.org/bot1590540671:AAGFRSr8EGztvqNU00l99TvHZGKRwVohFUM/sendMessage?chat_id=602418307_mode=html&text=${name} ${phone} ${email}`);
+
+            })
+
 
 
 

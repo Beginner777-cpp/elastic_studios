@@ -59,7 +59,7 @@ window.addEventListener('keydown', (e) => {
 
 for (let i = 0; i < indicators.length; i++) {
     indicators[i].addEventListener('click', () => {
-        if (indicators[i].classList.contains('active')) {} else {
+        if (indicators[i].classList.contains('active')) { } else {
             if (i > activePage) {
                 for (let j = activePage; j < i; j++) {
                     move(nextBtn);
@@ -186,9 +186,9 @@ function move(e) {
 
     }
 }
-view_btn.addEventListener('click', ()=>{
+view_btn.addEventListener('click', () => {
     indicators[1].click();
 })
-back_btn.addEventListener('click', ()=>{
+back_btn.addEventListener('click', () => {
     indicators[0].click();
 })

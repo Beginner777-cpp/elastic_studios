@@ -1,9 +1,187 @@
-.book_header{
+.book_header {
     background: #000;
 }
-.checkbox{
+
+.book_main {
+    padding-top: 190px;
+}
+
+.book_form {
+    max-width: 1172px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.book_title {
+    font-family: 'OpenSans-SemiBold';
+    font-size: 36px;
+    line-height: 49px;
+    text-align: center;
+    color: #000000;
+    margin-bottom: 11px;
+}
+
+.book_text {
+    font-family: 'OpenSans-Regular';
+    font-size: 24px;
+    line-height: 33px;
+    text-align: center;
+    color: #000000;
+    margin-bottom: 100px;
+}
+
+.options_title {
+    font-family: 'OpenSans-SemiBold';
+    font-size: 24px;
+    line-height: 33px;
+    text-align: center;
+    color: #000000;
+
+}
+
+.options_text {
+    font-family: 'OpenSans-Light';
+    font-size: 14px;
+    line-height: 19px;
+    text-align: center;
+    color: #000000;
+    margin-bottom: 20px;
+}
+
+.checkbox {
     display: none;
 }
-.checkbox:checked ~ .checkbox_text{
-    color: red;
+
+.checkbox_text {
+    display: block;
+    width: fit-content;
+    font-family: 'OpenSans-SemiBold';
+    font-size: 18px;
+    line-height: 25px;
+    color: #000000;
+    padding: 9px 37px;
+    border: 1px solid #CCAF40;
+    border-radius: 5px;
+    transition: 0.5s;
+}
+
+.options_items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 100px;
+}
+
+.checkbox_div {
+    margin: 0 15px;
+    margin-bottom: 20px;
+}
+.checkbox_div:nth-of-type(1) {
+    margin-left: 0;
+}
+.checkbox_div:nth-of-type(6) {
+    margin-right: 0;
+}
+
+.checkbox:checked~.checkbox_text {
+    background: #CCAF40;
+    color: white;
+}
+
+.date_title {
+    font-family: 'OpenSans-SemiBold';
+    font-size: 24px;
+    line-height: 33px;
+    text-align: center;
+    color: #000000;
+    margin-bottom: 27px;
+}
+
+.date_inputs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 100px;
+}
+
+input {
+    width: 328px;
+    height: 56px;
+    border: 2px solid #CCAF40;
+    padding: 16px;
+    margin: 0 25px;
+}
+
+.packages_title {
+    font-family: 'OpenSans-SemiBold';
+    font-size: 24px;
+    line-height: 33px;
+    text-align: center;
+    color: #000000;
+    margin-bottom: 30px;
+}
+
+.packages_items {
+    display: flex;
+    margin-bottom: 100px;
+    justify-content: space-between;
+    max-width: 955px;
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 100px;
+}
+
+.packages_item {
+    padding: 32px 72px;
+    text-align: center;
+    border: 1px solid #000000;
+}
+
+.packages_item-title {
+    font-family: 'OpenSans-SemiBold';
+    font-size: 21px;
+    line-height: 29px;
+    text-align: center;
+    color: #000000;
+}
+
+.price {
+    font-family: 'OpenSans-SemiBold';
+    font-size: 30px;
+    line-height: 41px;
+    text-align: center;
+    color: #000000;
+    margin-bottom: 7px;
+}
+.price img{
+    margin-right: 4px;
+}
+.packages_text {
+    font-family: 'OpenSans-Regular';
+    font-size: 16px;
+    line-height: 22px;
+    text-align: center;
+    color: #000000;
+}
+
+.select_btn {
+    font-family: 'OpenSans-SemiBold';
+    font-size: 18px;
+    line-height: 25px;
+    text-align: center;
+    color: #FFFFFF;
+    padding: 9px 27px;
+    background: #CCAF40;
+    border-radius: 5px;
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+.book_btns{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 193px;
+}
+.bookLater_btn{
+    margin-left: 30px;
 }

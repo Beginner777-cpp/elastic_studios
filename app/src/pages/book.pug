@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Document
+        link(rel="stylesheet", href="../styles/main.min.css")
+    body
+        header.header.book_header
+            .container
+                nav.header_nav
+                    .logo
+                        img(src="../images/logo.webp", alt="")
+                    ul.header_nav_list
+                        li
+                            a.header_list_link(href="../index.html") Home
+                        li
+                            a.header_list_link(href="book.html") Book
+                        li 
+                            a.header_list_link(href="contact.html") Contact
+                        li
+                            a.header_list_link(href="about.html") About
+        main.book_main
+            h1.book_title Welcome to the booking page!
+            p.book_text Kindly provide necessary informations by attending to the questions below.
+            section.book_options
+                h1.options_title What you booking for? 
+                p.options_text (you can select multiple options)
+                .options_items
+                    -var options = ['Engagement', 'Business event', 'Wedding', 'Birthday', 'Maternity', 'Graduation', 'Product']
+                        each i in options
+                            .checkbox_div
+                                label(for=`${i}` class="checkbox_text")=i
+                                input(type="checkbox" id=`${i}` class="checkbox")
+                                
+                            

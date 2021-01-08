@@ -1,0 +1,9 @@
+.book_header{
+    background: #000;
+}
+.checkbox{
+    display: none;
+}
+.checkbox:checked ~ .checkbox_text{
+    color: red;
+}

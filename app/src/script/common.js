@@ -2,8 +2,10 @@ const pages = document.querySelectorAll('.carousel_page');
 const prevBtn = document.querySelector('.prev_btn');
 const nextBtn = document.querySelector('.next_btn');
 const indicators = document.querySelectorAll('.indicator');
+const view_btn = document.querySelector('.view_btn');
+const back_btn = document.querySelector('.back_btn');
 var activePage = 0;
-
+var flag = true;
 prevBtn.addEventListener('click', (btn) => {
     move(prevBtn);
     prevBtn.disabled = true;
@@ -23,21 +25,38 @@ nextBtn.addEventListener('click', (btn) => {
 
 for (let i = 0; i < pages.length; i++) {
     pages[i].addEventListener('wheel', (e) => {
-        if (e.deltaY >= 100) {
-            move(nextBtn);
-        } else if (e.deltaY <= -100) {
-            move(prevBtn);
+        console.log(flag);
+        if (flag === true) {
+            if (e.deltaY >= 100) {
+                move(nextBtn);
+            } else if (e.deltaY <= -100) {
+                move(prevBtn);
+            }
+            flag = false;
+            setTimeout(() => {
+                flag = true;
+            }, 1000);
         }
     })
+
 }
+flag = true;
 window.addEventListener('keydown', (e) => {
-    if (e.code == 'ArrowDown') {
-        move(nextBtn);
-    } else if (e.code == 'ArrowUp') {
-        console.log(e.code);
-        move(prevBtn);
+    if (flag === true) {
+        if (e.code == 'ArrowDown') {
+            move(nextBtn);
+        } else if (e.code == 'ArrowUp') {
+            console.log(e.code);
+            move(prevBtn);
+        }
+        flag = false;
+        setTimeout(() => {
+            flag = true;
+        }, 1000);
     }
+
 })
+
 for (let i = 0; i < indicators.length; i++) {
     indicators[i].addEventListener('click', () => {
         if (indicators[i].classList.contains('active')) {} else {
@@ -88,6 +107,10 @@ for (let i = 0; i < pages.length; i++) {
                         pages[i].style.top = `-100%`;
                         pages[i + 1].style.transition = '1s';
                         pages[i + 1].style.top = `0`;
+                        activePage++;
+                        indicators[activePage].classList.add('active');
+                        indicators[activePage - 1].classList.remove('active');
+
                     } else {
                         pages[i].style.transition = '1s';
                         pages[i].style.top = `0`;
@@ -106,6 +129,9 @@ for (let i = 0; i < pages.length; i++) {
                         pages[i].style.top = `100%`;
                         pages[i - 1].style.transition = '1s';
                         pages[i - 1].style.top = `0`;
+                        activePage--;
+                        indicators[activePage].classList.add('active');
+                        indicators[activePage + 1].classList.remove('active');
                     } else {
                         pages[i].style.transition = '1s';
                         pages[i].style.top = `0`;
@@ -160,3 +186,9 @@ function move(e) {
 
     }
 }
+view_btn.addEventListener('click', ()=>{
+    indicators[1].click();
+})
+back_btn.addEventListener('click', ()=>{
+    indicators[0].click();
+})

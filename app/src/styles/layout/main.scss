@@ -108,10 +108,17 @@
     font-family: 'OpenSans-SemiBold';
     font-size: 30px;
     line-height: 41px;
-    color: #CCAF40;
-    border: 2px solid #CCAF40;
+    color: white;
+    border: 2px solid transparent;
     border-radius: 56px;
     padding: 18px 45px;
+    background: #CCAF40;
+    transition: 0.5s;
+}
+.book_btn:hover{
+    color: #CCAF40;
+    background: transparent;
+    border: 2px solid #CCAF40;
 }
 
 .view_btn {
@@ -225,6 +232,9 @@
     width: 100%;
     padding: 0 15px;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .back_btn {
@@ -237,13 +247,19 @@
     align-items: center;
     margin-bottom: 30px;
 }
-
+.back_btn:hover{
+    cursor: pointer;
+}
 .page11_inner {
     display: flex;
 
 }
 .page11_item{
     padding: 0 45px;
+}
+.page11_item:nth-of-type(2){
+    border-left: 3px solid #CCAF40;
+    border-right: 3px solid #CCAF40;
 }
 .page11_number {
     font-family: 'OpenSans-Bold';
@@ -258,3 +274,11 @@
     line-height: 33px;
     color: #FFFFFF;
 }
+.footer_btn{
+    display: flex;
+    justify-content: center;
+    width: fit-content;
+    align-items: center;
+    margin-top: 64px;
+}
+

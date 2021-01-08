@@ -113,20 +113,21 @@ button:hover {
 
 .carousel_indicators {
     position: fixed;
-    right: 1%;
-    top: 50%;
+    right: 0.5%;
+    top: 30%;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 .indicator {
-    width: 10px;
-    height: 10px;
+    width: 18px;
+    height: 18px;
     background: grey;
     border-radius: 50%;
     margin-bottom: 5px;
     transition: 1s;
+    border: 2px solid transparent;
 }
 
 .indicator:hover {
@@ -136,6 +137,7 @@ button:hover {
 
 .indicator.active {
     background: black;
+    border: 2px solid rgb(153, 151, 151);
 }
 
 .prev_btn {
@@ -144,14 +146,14 @@ button:hover {
 
 .prev_btn::before {
     content: "\f106";
-    color: black;
-    font-size: 20px;
+    color: white;
+    font-size: 25px;
 }
 
 .next_btn::before {
     content: "\f107";
-    color: black;
-    font-size: 20px;
+    color: white;
+    font-size: 25px;
 }
 
 /*==================================== /carousel ===================================*/
@@ -160,3 +162,6 @@ button:hover {
 @import 'layout/header.scss';
 @import 'layout/main.scss';
 @import 'layout/footer.scss';
+@import 'pages/book.scss';
+@import 'pages/about.scss';
+@import 'pages/contact.scss';

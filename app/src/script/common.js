@@ -25,7 +25,7 @@ nextBtn.addEventListener('click', (btn) => {
 
 for (let i = 0; i < pages.length; i++) {
     pages[i].addEventListener('wheel', (e) => {
-        console.log(flag);
+        console.log(e.deltaY);
         if (flag === true) {
             if (e.deltaY >= 100) {
                 move(nextBtn);

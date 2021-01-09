@@ -105,9 +105,18 @@
         <section class="book_date">
           <h1 class="date_title">When and where is the photoshoot?</h1>
           <div class="date_inputs">
-            <input type="date" id="date" placeholder="Select date" required="required"/>
-            <input type="time" id="time" placeholder="Select time" required="required"/>
-            <input type="text" id="address" placeholder="Enter the location address"/>
+            <div class="date_input">
+              <input type="text" id="date" placeholder="Select date" required="required" onfocus="(this.type='date')" onblur="(this.type='text')"/>
+              <label for="date">Date</label>
+            </div>
+            <div class="date_input">
+              <input type="text" id="time" placeholder="Select time" required="required" onfocus="(this.type='time')" onblur="(this.type='text')"/>
+              <label for="time">Time</label>
+            </div>
+            <div class="date_input">
+              <input type="text" id="address" placeholder="Enter the location address"/>
+              <label for="address">Address</label>
+            </div>
           </div>
         </section>
         <section class="book_packages">
@@ -140,14 +149,11 @@
           <h1 class="date_title">Kindly provide your contact details</h1>
           <div class="date_inputs">
             <input type="text" id="name" placeholder="Enter full name" required="required"/>
-            <input type="number" id="phone" placeholder="Enter phone number" min="0" required="required"/>
+            <input type="tel" id="phone" placeholder="Enter phone number" required="required"/>
             <input type="email" id="email" placeholder="Enter email address" required="required"/>
           </div>
         </section>
-        <div class="book_btns">
-          <input class="book_btn" type="submit" id="book_now" value="Book now"/>
-          <input class="book_btn bookLater_btn" type="submit" id="book_now" value="Save and book later"/>
-        </div>
+        <div class="book_btns"><a class="book_btn" href="#!" id="book_now">Book now </a><a class="book_btn bookLater_btn" href="#!" id="book_now">Save and book later</a></div>
       </form>
     </main>
     <script type="text/javascript">
@@ -160,11 +166,10 @@
                   }
               }
               orders[i].classList.add('clicked');
-              
+      
           })
       }
       document.querySelector('#book_now').addEventListener('click', (e) => {
-      
           var name = document.querySelector('#name').value;
           var phone = document.querySelector('#phone').value;
           var email = document.querySelector('#email').value;
@@ -181,30 +186,17 @@
           var date = document.querySelector('#date').value;
           var time = document.querySelector('#time').value;
           var address = document.querySelector('#address').value;
-          var orderType = document.querySelector('.clicked').getAttribute('text');
-          fetch(`https://api.telegram.org/bot1590540671:AAGFRSr8EGztvqNU00l99TvHZGKRwVohFUM/sendMessage?chat_id=-445060954_mode=html&text= Client's name: ${name} %0A Contacts: ${phone} ${email} %0A Type of order: ${orderType} %0A Bookings: ${bookings} %0A Photoshoot details: ${date} ${time} ${address}`);
-          setTimeout(()=>{
-              name='';
-              phone = '';
-              email = '';
-              date='';
-              for(let j=0;j<orders.length;j++){
-                  if(orders[j].classList.contains('clicked')){
-                      orders[j].classList.remove('clicked');
-                  }
-              }
-              for(let i=0;i<checked.length;i++){
-                  checked[i].checked = false;
-              }
-              bookings='';
-              date='';
-              time='';
-              address='';
-              orderType.classList.remove('clicked');
-          },1000)
-          
-          
-          
+          var orderType = document.querySelector('.clicked');
+          if(name==''||phone==''||email==''||checked.length==0||bookings==''||date==''||time==''||address==''||orderType==null){
+              alert('Заполните все поля!');
+          }
+          else{
+              orderType = orderType.getAttribute('text');
+              fetch(`https://api.telegram.org/bot1590540671:AAGFRSr8EGztvqNU00l99TvHZGKRwVohFUM/sendMessage?chat_id=-445060954_mode=html&text= BOOKING: %0AClient's name: ${name} %0AContacts: ${phone} ${email} %0AType of order: ${orderType} %0ABookings: ${bookings} %0APhotoshoot details: ${date} ${time} ${address}`);
+              setTimeout(()=>{
+                  location.reload();
+              },1000)
+          }
       })
     </script>
   </body>

@@ -76,9 +76,11 @@
     margin: 0 15px;
     margin-bottom: 20px;
 }
+
 .checkbox_div:nth-of-type(1) {
     margin-left: 0;
 }
+
 .checkbox_div:nth-of-type(6) {
     margin-right: 0;
 }
@@ -101,6 +103,32 @@
     display: flex;
     justify-content: center;
     margin-bottom: 100px;
+}
+
+.date_input label {
+    font-family: 'Roboto-Regular';
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.4px;
+    color: #000000;
+    position: absolute;
+    background: white;
+    padding: 0 8px;
+    top: -7px;
+    left: 40px;
+    opacity: 0;
+}
+.date_input label:focus{
+    opacity: 1;
+}
+.date_input input:focus{
+    outline: none;
+}
+.date_input input:focus:placeholder{
+    top: 10px;
+}
+.date_input{
+    position: relative;
 }
 
 input {
@@ -151,9 +179,11 @@ input {
     color: #000000;
     margin-bottom: 7px;
 }
-.price img{
+
+.price img {
     margin-right: 4px;
 }
+
 .packages_text {
     font-family: 'OpenSans-Regular';
     font-size: 16px;
@@ -176,18 +206,21 @@ input {
     margin: 0 auto;
     margin-top: 50px;
     border: 2px solid transparent;
-    
+
 }
-.select_btn.clicked{
+
+.select_btn.clicked {
     color: black;
     background: transparent;
     border: 2px solid #CCAF40;
 }
-.book_btns{
+
+.book_btns {
     display: flex;
     justify-content: center;
     padding-bottom: 193px;
 }
-.bookLater_btn{
+
+.bookLater_btn {
     margin-left: 30px;
 }

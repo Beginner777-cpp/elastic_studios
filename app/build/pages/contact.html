@@ -34,9 +34,9 @@
           <div class="contact_title">Contact-us</div>
           <form class="contact_form" action="">
             <label for="contact_name">Name</label>
-            <input type="text" id="contact_name" placeholder="Enter your name"/>
+            <input type="text" id="contact_name" placeholder="Enter your name" required="required"/>
             <label for="contact_email">Email Address</label>
-            <input type="email" id="contact_email" placeholder="Enter your email addres"/>
+            <input type="email" id="contact_email" placeholder="Enter your email addres" required="required"/>
             <label for="">Message</label>
             <textarea name="" id="contact_message"></textarea>
             <div class="submit_div">
@@ -47,5 +47,21 @@
         </div>
       </div>
     </main>
+    <script type="text/javascript">
+      document.querySelector('.submit_btn').addEventListener('click', (e) => {
+          var name = document.querySelector('#contact_name').value;
+          var email = document.querySelector('#contact_email').value;
+          var message = document.querySelector('#contact_message').value;
+          if(name==''||email==''||message==''){
+              alert('Заполните все поля!');
+          }
+          else{
+              fetch(`https://api.telegram.org/bot1590540671:AAGFRSr8EGztvqNU00l99TvHZGKRwVohFUM/sendMessage?chat_id=-445060954_mode=html&text= CONTACT: %0AName: ${name} %0AEmail: ${email} %0AMessage: ${message}`);
+              setTimeout(()=>{
+                  location.reload();
+              },1000)
+          }
+      })
+    </script>
   </body>
 </html>

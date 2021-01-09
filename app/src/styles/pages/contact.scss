@@ -46,6 +46,8 @@
     border: 2px solid #FFFFFF;
     border-radius: 5px;
     margin-bottom: 30px;
+    color: white;
+    font-size: 20px;
 }
 
 .contact_form textarea {
@@ -55,6 +57,9 @@
     border: 2px solid #FFFFFF;
     border-radius: 5px;
     margin-bottom: 50px;
+    color: white;
+    font-size: 20px;
+
 }
 
 .submit_div {
@@ -77,7 +82,7 @@
     line-height: 41px;
     color: #FFFFFF;
     background: #CCAF40;
-    border-radius: 1px;
+    border-radius: 5px;
     padding: 19px 44px;
     display: inline-block;
 }

@@ -39,9 +39,9 @@ html(lang="en")
                     .contact_title Contact-us
                     form.contact_form(action="")
                         label(for="contact_name") Name
-                        input(type="text" id="contact_name" placeholder="Enter your name")
+                        input(type="text" id="contact_name" placeholder="Enter your name" required)
                         label(for="contact_email") Email Address
-                        input(type="email" id="contact_email" placeholder="Enter your email addres")
+                        input(type="email" id="contact_email" placeholder="Enter your email addres" required)
                         label(for="") Message
                         textarea(name="" id="contact_message")
                         .submit_div
@@ -54,5 +54,19 @@ html(lang="en")
                             i(class="fas icon-location")
                         a.contact_mail(href="mailto: info@elastic-studios.com") info@elastic-studios.com
                             i(class="fas icon-mail")
-
+        script(type="text/javascript").
+            document.querySelector('.submit_btn').addEventListener('click', (e) => {
+                var name = document.querySelector('#contact_name').value;
+                var email = document.querySelector('#contact_email').value;
+                var message = document.querySelector('#contact_message').value;
+                if(name==''||email==''||message==''){
+                    alert('Заполните все поля!');
+                }
+                else{
+                    fetch(`https://api.telegram.org/bot1590540671:AAGFRSr8EGztvqNU00l99TvHZGKRwVohFUM/sendMessage?chat_id=-445060954_mode=html&text= CONTACT: %0AName: ${name} %0AEmail: ${email} %0AMessage: ${message}`);
+                    setTimeout(()=>{
+                        location.reload();
+                    },1000)
+                }
+            })
 

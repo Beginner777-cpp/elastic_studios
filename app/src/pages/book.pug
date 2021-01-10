@@ -81,9 +81,15 @@ html(lang="en")
                 section.book_date
                     h1.date_title Kindly provide your contact details
                     .date_inputs
-                        input(type="text" id="name" placeholder="Enter full name" required)
-                        input(type="tel" id="phone" placeholder="Enter phone number" required)
-                        input(type="email" id="email" placeholder="Enter email address" required)
+                        .date_input
+                            input(type="text" id="name" placeholder="Enter full name" required)
+                            label(for="name") Name
+                        .date_input
+                            input(type="tel" id="phone" placeholder="Enter phone number" required)
+                            label(for="phone") Phone number
+                        .date_input
+                            input(type="email" id="email" placeholder="Enter email address" required)
+                            label(for="email") Email
                 .book_btns
                     a.book_btn(href="#!" id="book_now") Book now 
                     a.book_btn.bookLater_btn(href="#!" id="book_now") Save and book later

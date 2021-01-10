@@ -7,7 +7,6 @@
         background-position-y: 20%;
     }
 }
-
 @for $i from 2 through 10 {
     .page#{$i} {
         padding: 31px 41px;
@@ -20,6 +19,7 @@
     height: 100%;
     top: 0;
     left: 0;
+    pointer-events: none;
 }
 
 .page2_layover {
@@ -115,7 +115,8 @@
     background: #CCAF40;
     transition: 0.5s;
 }
-.book_btn:hover{
+
+.book_btn:hover {
     color: #CCAF40;
     background: transparent;
     border: 2px solid #CCAF40;
@@ -145,6 +146,7 @@
     border: 2px solid #CCAF40;
     padding: 0 46px;
     z-index: 1;
+    pointer-events: none;
 }
 
 .page2_inner_content {
@@ -181,8 +183,9 @@
 
 .page3_inner {
     display: flex;
-    justify-content: flex-end;
-    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    align-items: flex-end;
 }
 
 .page3_inner_content {
@@ -247,20 +250,25 @@
     align-items: center;
     margin-bottom: 30px;
 }
-.back_btn:hover{
+
+.back_btn:hover {
     cursor: pointer;
 }
+
 .page11_inner {
     display: flex;
 
 }
-.page11_item{
+
+.page11_item {
     padding: 0 45px;
 }
-.page11_item:nth-of-type(2){
+
+.page11_item:nth-of-type(2) {
     border-left: 3px solid #CCAF40;
     border-right: 3px solid #CCAF40;
 }
+
 .page11_number {
     font-family: 'OpenSans-Bold';
     font-size: 64px;
@@ -274,7 +282,8 @@
     line-height: 33px;
     color: #FFFFFF;
 }
-.footer_btn{
+
+.footer_btn {
     display: flex;
     justify-content: center;
     width: fit-content;
@@ -282,3 +291,29 @@
     margin-top: 64px;
 }
 
+.look_btn {
+    font-family: 'OpenSans-SemiBold';
+    font-size: 30px;
+    line-height: 41px;
+    width: fit-content;
+    padding: 19px 26px;
+    color: #FFFFFF;
+    background: #CCAF40;
+    border-radius: 10px;
+    margin: 30px 33px;
+    display: flex;
+    align-items: center;
+    transition: 0.5s;
+    border: 2px solid transparent;
+    pointer-events: painted;
+}
+.look_btn:hover{
+    cursor: pointer;
+    color: #CCAF40;
+    background: transparent;
+    border: 2px solid #CCAF40;
+}
+.look_btn:hover i::before{
+    transition: 0.5s;
+    color: #CCAF40;
+}

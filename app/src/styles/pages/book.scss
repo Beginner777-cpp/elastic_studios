@@ -117,15 +117,15 @@
     top: -7px;
     left: 40px;
     opacity: 0;
+    
 }
-.date_input label:focus{
-    opacity: 1;
-}
+
 .date_input input:focus{
     outline: none;
 }
-.date_input input:focus:placeholder{
-    top: 10px;
+.date_input input:focus ~label{
+    transition: 0.5s;
+    opacity: 1;
 }
 .date_input{
     position: relative;
@@ -138,7 +138,26 @@ input {
     padding: 16px;
     margin: 0 25px;
 }
-
+input[type="date"]::-webkit-calendar-picker-indicator{
+    color: rgba(0, 0, 0, 0);
+    opacity: 1;
+    display: block;
+    background: url(../images/input_icon.webp) no-repeat;
+    background-position: center;
+    width: 20px;
+    height: 20px;
+    border-width: thin;
+}
+input[type="time"]::-webkit-calendar-picker-indicator{
+    color: rgba(0, 0, 0, 0);
+    opacity: 1;
+    display: block;
+    background: url(../images/input_icon.webp) no-repeat;
+    background-position: center;
+    width: 20px;
+    height: 20px;
+    border-width: thin;
+}
 .packages_title {
     font-family: 'OpenSans-SemiBold';
     font-size: 24px;

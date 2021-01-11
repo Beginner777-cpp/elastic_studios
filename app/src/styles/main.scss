@@ -118,11 +118,12 @@ button:hover {
 
 .carousel_indicators {
     position: fixed;
-    right: 0.5%;
+    right: 1%;
     top: 30%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    z-index: 10;
 }
 
 .indicator {
@@ -170,3 +171,4 @@ button:hover {
 @import 'pages/book.scss';
 @import 'pages/about.scss';
 @import 'pages/contact.scss';
+@import 'common/media.scss';

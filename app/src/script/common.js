@@ -58,7 +58,7 @@ window.addEventListener('keydown', (e) => {
 
 for (let i = 0; i < indicators.length; i++) {
     indicators[i].addEventListener('click', () => {
-        if (indicators[i].classList.contains('active')) {} else {
+        if (indicators[i].classList.contains('active')) { } else {
             if (i > activePage) {
                 for (let j = activePage; j < i; j++) {
                     move(nextBtn);
@@ -92,7 +92,7 @@ for (let i = 0; i < pages.length; i++) {
                         pages[i - 1].style.top = `-${pages[i - 1].clientHeight + change}px`;
                     }
                 }
-            } else {}
+            } else { }
         }
 
     })
@@ -206,19 +206,32 @@ for (let i = 0; i < look_btn.length; i++) {
         document.querySelector('.carousel_indicators').style.transition = '1s';
         document.querySelector('.carousel_indicators').style.right = '-100%';
         look_btn[i].style.opacity = 0;
-        pages[activePage].addEventListener('mousedown', (e) => {
-            if (flag == false) {
+    //     var mouseDown = false;
+    //     var mouseStartX = 0;
+    //     var mouseStartY = 0;
+    //     pages[activePage].addEventListener('mousedown', (e) => {
+    //         mouseStartX = e.screenX;
+    //         mouseStartY = e.screenY;
+    //         if (flag == false) {
+    //             mouseDown = true;
+    //         }
+    //     })
+    //     pages[activePage].addEventListener('mousemove', (e1) => {
+    //         console.log(mouseDown);
+    //         if (mouseDown == true) {
+    //             pages[activePage].style.transition = '0s';
+    //             pages[activePage].style.backgroundSize = 'contain';
+    //             pages[activePage].style.backgroundPosition = `${-e1.clientX + mouseStartX}px ${-e1.clientY + mouseStartY}px`;
+    //         }
 
-            }
-            var mouseStartX = e.screenX;
-            var mouseStartY = e.screenY;
-            pages[activePage].addEventListener('mousemove', (e1) => {
-                console.log(e);
-                pages[activePage].style.transition = '0s';
-                pages[activePage].style.backgroundSize = 'contain';
-                pages[activePage].style.backgroundPosition = `${-e1.clientX + mouseStartX}px ${-e1.clientY + mouseStartY}px`;
-            })
-        })
+    //     })
+
+
+    //     pages[activePage].addEventListener('mouseup', () => {
+    //         mouseDown = false;
+    //         pages[activePage].style.backgroundPosition = 'center';
+    //         pages[activePage].style.backgroundSize = 'cover';
+    //     })
     })
 }
 

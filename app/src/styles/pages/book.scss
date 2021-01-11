@@ -7,9 +7,10 @@
 }
 
 .book_form {
-    max-width: 1172px;
+    max-width: 1202px;
     width: 100%;
     margin: 0 auto;
+    padding: 0 15px;
 }
 
 .book_title {
@@ -59,7 +60,7 @@
     font-size: 18px;
     line-height: 25px;
     color: #000000;
-    padding: 9px 37px;
+    padding: 9px 30px;
     border: 1px solid #CCAF40;
     border-radius: 5px;
     transition: 0.5s;
@@ -75,14 +76,6 @@
 .checkbox_div {
     margin: 0 15px;
     margin-bottom: 20px;
-}
-
-.checkbox_div:nth-of-type(1) {
-    margin-left: 0;
-}
-
-.checkbox_div:nth-of-type(6) {
-    margin-right: 0;
 }
 
 .checkbox:checked~.checkbox_text {
@@ -129,14 +122,16 @@
 }
 .date_input{
     position: relative;
+    width: 30%;
+    margin: 0 25px;
 }
 
 input {
-    width: 328px;
+    width: 100%;
     height: 56px;
     border: 2px solid #CCAF40;
     padding: 16px;
-    margin: 0 25px;
+    
 }
 input[type="date"]::-webkit-calendar-picker-indicator{
     color: rgba(0, 0, 0, 0);

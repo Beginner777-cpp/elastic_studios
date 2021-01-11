@@ -208,6 +208,18 @@
         font-size: 30px;
         line-height: 30px;
     }
+
+    .header_burger {
+        display: block;
+    }
+    .header_nav_list {
+        background: black;
+        flex-direction: column;
+        position: absolute;
+        right: 10%;
+        top: -200%;
+        padding-right: 20px;
+    }
 }
 
 @media(max-width: 576px) {

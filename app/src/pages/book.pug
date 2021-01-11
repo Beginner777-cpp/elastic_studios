@@ -11,6 +11,8 @@ html(lang="en")
                 nav.header_nav
                     .logo
                         img(src="../images/logo.webp" alt="")
+                    a.header_burger(href="#!")
+                        span
                     ul.header_nav_list
                         li
                             a.header_list_link(href="../index.html") Home
@@ -37,11 +39,11 @@ html(lang="en")
                     h1.date_title When and where is the photoshoot?
                     .date_inputs
                         .date_input
-                            input(type="text" id="date" placeholder="Select date" required onfocus="(this.type='date')"
+                            input(type="text" id="date" placeholder="Select date" required onfocus="(this.type='date')" 
                             onblur="(this.type='text')") 
                             label(for="date") Date
                         .date_input
-                            input(type="text" id="time" placeholder="Select time" required onfocus="(this.type='time')"
+                            input(type="text" id="time" placeholder="Select time" required onfocus="(this.type='time')" 
                             onblur="(this.type='text')")
                             label(for="time") Time
                         .date_input
@@ -134,6 +136,20 @@ html(lang="en")
                         location.reload();
                     },1000)
                 }
+            })
+
+            var burger_icon = document.querySelector('.header_burger');
+            var header_list = document.querySelectorAll('.header_nav_list');
+            var header__content_top = document.querySelector('.header__nav');
+            burger_icon.addEventListener('click', function () {
+                if (!burger_icon.classList.contains('clicked')) {
+                    burger_icon.classList.add('clicked');
+
+                }
+                else {
+                    burger_icon.classList.remove('clicked');
+                }
+
             })
 
 

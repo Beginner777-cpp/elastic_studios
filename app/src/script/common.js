@@ -181,12 +181,11 @@ for (let i = 0; i < pages.length; i++) {
             else {
                 document.querySelector('body').style = 'overscroll-behavior: contain';
             }
+            console.log(document.querySelector('body').style.overscrollBehavior);
             flag = false;
             setTimeout(() => {
                 flag = true;
-                console.log(flag);
             }, 1000);
-            console.log(flag);
         }
     })
 }

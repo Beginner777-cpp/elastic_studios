@@ -181,6 +181,12 @@ for (let i = 0; i < pages.length; i++) {
                 pages[i].style.transition = '1s';
                 pages[i].style.top = `0`;
             }
+
+
+            flag = false;
+            setTimeout(() => {
+                flag = true;
+            }, 1000);
         }
 
     })

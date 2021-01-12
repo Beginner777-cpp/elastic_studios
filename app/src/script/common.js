@@ -186,7 +186,9 @@ for (let i = 0; i < pages.length; i++) {
             flag = false;
             setTimeout(() => {
                 flag = true;
+                console.log(flag);
             }, 1000);
+            console.log(flag);
         }
 
     })
@@ -267,6 +269,11 @@ const look_btn = document.querySelectorAll('.look_btn');
 for (let i = 0; i < look_btn.length; i++) {
     look_btn[i].addEventListener('click', () => {
         flag = false;
+        console.log(flag);
+        setTimeout(() => {
+            flag = false;
+            console.log(flag);
+        }, 1000);
         header.style.transition = '1s';
         header.style.top = '-100%';
         document.querySelectorAll('.page2_inner_content')[i].style.opacity = 0;

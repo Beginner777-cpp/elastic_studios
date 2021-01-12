@@ -7,6 +7,7 @@ const back_btn = document.querySelector('.back_btn');
 const header = document.querySelector('.header');
 var activePage = 0;
 var flag = true;
+var lastPage_nums = [25, 49, 36];
 prevBtn.addEventListener('click', (btn) => {
     move(prevBtn);
     prevBtn.disabled = true;
@@ -204,6 +205,27 @@ function move(e) {
     }
     else {
         header.style.background = 'none';
+    }
+    if (activePage == 10) {
+        let i = 0, j=0, k=0;        
+        var temp1 = setInterval(() => {
+            document.querySelectorAll('.page11_number')[0].innerHTML = ++i;
+            if(i==lastPage_nums[0]){
+                clearInterval(temp1);
+            }
+        }, 100);
+        var temp2 = setInterval(() => {
+            document.querySelectorAll('.page11_number')[1].innerHTML = ++j;
+            if(j==lastPage_nums[1]){
+                clearInterval(temp2);
+            }
+        }, 100);
+        var temp3 = setInterval(() => {
+            document.querySelectorAll('.page11_number')[2].innerHTML = ++k;
+            if(k==lastPage_nums[2]){
+                clearInterval(temp3);
+            }
+        }, 100);
     }
 }
 view_btn.addEventListener('click', () => {

@@ -116,6 +116,27 @@ for (let i = 0; i < pages.length; i++) {
                             else {
                                 header.style.background = 'none';
                             }
+                            if (activePage == 10) {
+                                let i = 0, j = 0, k = 0;
+                                var temp1 = setInterval(() => {
+                                    document.querySelectorAll('.page11_number')[0].innerHTML = ++i;
+                                    if (i == lastPage_nums[0]) {
+                                        clearInterval(temp1);
+                                    }
+                                }, 100);
+                                var temp2 = setInterval(() => {
+                                    document.querySelectorAll('.page11_number')[1].innerHTML = ++j;
+                                    if (j == lastPage_nums[1]) {
+                                        clearInterval(temp2);
+                                    }
+                                }, 100);
+                                var temp3 = setInterval(() => {
+                                    document.querySelectorAll('.page11_number')[2].innerHTML = ++k;
+                                    if (k == lastPage_nums[2]) {
+                                        clearInterval(temp3);
+                                    }
+                                }, 100);
+                            }
 
                         } else {
                             pages[i].style.transition = '1s';
@@ -207,22 +228,22 @@ function move(e) {
         header.style.background = 'none';
     }
     if (activePage == 10) {
-        let i = 0, j=0, k=0;        
+        let i = 0, j = 0, k = 0;
         var temp1 = setInterval(() => {
             document.querySelectorAll('.page11_number')[0].innerHTML = ++i;
-            if(i==lastPage_nums[0]){
+            if (i == lastPage_nums[0]) {
                 clearInterval(temp1);
             }
         }, 100);
         var temp2 = setInterval(() => {
             document.querySelectorAll('.page11_number')[1].innerHTML = ++j;
-            if(j==lastPage_nums[1]){
+            if (j == lastPage_nums[1]) {
                 clearInterval(temp2);
             }
         }, 100);
         var temp3 = setInterval(() => {
             document.querySelectorAll('.page11_number')[2].innerHTML = ++k;
-            if(k==lastPage_nums[2]){
+            if (k == lastPage_nums[2]) {
                 clearInterval(temp3);
             }
         }, 100);

@@ -111,7 +111,7 @@ for (let i = 0; i < pages.length; i++) {
                             indicators[activePage].classList.add('active');
                             indicators[activePage - 1].classList.remove('active');
                             if (activePage > 0) {
-                                header.style.background = 'black';
+                                header.style.background = 'rgba(0, 0, 0, 0.6)';
                             }
                             else {
                                 header.style.background = 'none';
@@ -160,7 +160,7 @@ for (let i = 0; i < pages.length; i++) {
                             indicators[activePage].classList.add('active');
                             indicators[activePage + 1].classList.remove('active');
                             if (activePage > 0) {
-                                header.style.background = 'black';
+                                header.style.background = 'rgba(0, 0, 0, 0.6)';
                             }
                             else {
                                 header.style.background = 'none';
@@ -230,7 +230,7 @@ function move(e) {
 
     }
     if (activePage > 0) {
-        header.style.background = 'black';
+        header.style.background = 'rgba(0, 0, 0, 0.6)';
     }
     else {
         header.style.background = 'none';

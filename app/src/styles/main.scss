@@ -110,6 +110,7 @@ button:hover {
     align-items: center;
     justify-content: flex-end;
     transition: 1s;
+    overflow: hidden;
 }
 .carousel_page.active {
     top: 0;

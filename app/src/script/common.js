@@ -39,9 +39,7 @@ for (let i = 0; i < pages.length; i++) {
             }, 1000);
         }
     })
-
 }
-flag = true;
 window.addEventListener('keydown', (e) => {
     if (flag === true) {
         if (e.code == 'ArrowDown') {
@@ -54,7 +52,6 @@ window.addEventListener('keydown', (e) => {
             flag = true;
         }, 1000);
     }
-
 })
 
 for (let i = 0; i < indicators.length; i++) {
@@ -81,19 +78,19 @@ for (let i = 0; i < pages.length; i++) {
     pages[i].addEventListener('touchmove', (e) => {
         if (flag == true) {
             var change = startY - e.touches[0].clientY;
-            pages[i].style.transition = '0s';
-            pages[i].style.top = `${-change}px`;
-            if (i < pages.length) {
-                if (change > 0 && i != pages.length - 1) {
-                    pages[i + 1].style.transition = '0s';
-                    pages[i + 1].style.top = `${pages[i + 1].clientHeight - change}px`;
-                } else {
-                    if (i > 0) {
-                        pages[i - 1].style.transition = '0s';
-                        pages[i - 1].style.top = `-${pages[i - 1].clientHeight + change}px`;
-                    }
+            if (!((change < 0 && i == 0) || (change > 0 && i == pages.length - 1))) {
+                pages[i].style.transition = '0s';
+                pages[i].style.top = `${-change}px`;
+            }
+            if (change > 0 && i != pages.length - 1) {
+                pages[i + 1].style.transition = '0s';
+                pages[i + 1].style.top = `${pages[i + 1].clientHeight - change}px`;
+            } else {
+                if (i > 0) {
+                    pages[i - 1].style.transition = '0s';
+                    pages[i - 1].style.top = `-${pages[i - 1].clientHeight + change}px`;
                 }
-            } else { }
+            }
         }
 
     })
@@ -137,7 +134,6 @@ for (let i = 0; i < pages.length; i++) {
                                     }
                                 }, 100);
                             }
-
                         } else {
                             pages[i].style.transition = '1s';
                             pages[i].style.top = `0`;
@@ -148,7 +144,6 @@ for (let i = 0; i < pages.length; i++) {
                         pages[i].style.transition = '1s';
                         pages[i].style.top = `0`;
                     }
-
                 } else {
                     if (i != 0) {
                         if (Math.abs(pages[i].offsetTop) > pages[i].clientHeight / 3) {
@@ -175,14 +170,17 @@ for (let i = 0; i < pages.length; i++) {
                         pages[i].style.transition = '1s';
                         pages[i].style.top = `0`;
                     }
-
                 }
             } else {
                 pages[i].style.transition = '1s';
                 pages[i].style.top = `0`;
             }
-
-
+            if (activePage == 0) {
+                document.querySelector('body').style = 'overscroll-behavior: auto';
+            }
+            else {
+                document.querySelector('body').style = 'overscroll-behavior: contain';
+            }
             flag = false;
             setTimeout(() => {
                 flag = true;
@@ -190,16 +188,8 @@ for (let i = 0; i < pages.length; i++) {
             }, 1000);
             console.log(flag);
         }
-
     })
 }
-
-
-
-
-
-
-
 function move(e) {
     if (e == prevBtn) {
         activePage--;
@@ -213,8 +203,6 @@ function move(e) {
             indicators[activePage].classList.add('active');
             indicators[activePage + 1].classList.remove('active');
         }
-
-
     } else if (e == nextBtn) {
         activePage++;
         if (activePage >= pages.length) {
@@ -227,7 +215,6 @@ function move(e) {
             indicators[activePage].classList.add('active');
             indicators[activePage - 1].classList.remove('active');
         }
-
     }
     if (activePage > 0) {
         header.style.background = 'rgba(0, 0, 0, 0.6)';
@@ -255,6 +242,12 @@ function move(e) {
                 clearInterval(temp3);
             }
         }, 100);
+        if (activePage == 0) {
+            document.querySelector('body').style = 'overscroll-behavior: auto';
+        }
+        else {
+            document.querySelector('body').style = 'overscroll-behavior: contain';
+        }
     }
 }
 view_btn.addEventListener('click', () => {
@@ -263,9 +256,7 @@ view_btn.addEventListener('click', () => {
 back_btn.addEventListener('click', () => {
     indicators[0].click();
 })
-
 const look_btn = document.querySelectorAll('.look_btn');
-
 for (let i = 0; i < look_btn.length; i++) {
     look_btn[i].addEventListener('click', () => {
         flag = false;
@@ -309,8 +300,6 @@ for (let i = 0; i < look_btn.length; i++) {
         //     })
     })
 }
-
-
 /*====================== double click for mobile =====================*/
 var timeClick = 0;
 for (let i = 0; i < pages.length; i++) {
@@ -318,9 +307,7 @@ for (let i = 0; i < pages.length; i++) {
         if (timeClick == 0) {
             timeClick = new Date().getTime();
         } else {
-            console.log();
             if ((new Date().getTime()) - timeClick < 500) {
-                console.log('dblclick');
                 flag = true;
                 header.style.top = '0';
                 document.querySelectorAll('.page2_inner_content')[activePage - 1].style.opacity = 1;
@@ -335,20 +322,15 @@ for (let i = 0; i < pages.length; i++) {
         }
     })
 }
-
-
 /*====================== /double click for mobile =====================*/
-
 var burger_icon = document.querySelector('.header_burger');
 var header_list = document.querySelectorAll('.header_nav_list');
 var header__content_top = document.querySelector('.header__nav');
 burger_icon.addEventListener('click', function () {
     if (!burger_icon.classList.contains('clicked')) {
         burger_icon.classList.add('clicked');
-
     }
     else {
         burger_icon.classList.remove('clicked');
     }
-
 })

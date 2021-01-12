@@ -1,5 +1,8 @@
-body{
-    overscroll-behavior: contain;
+html{
+}
+.index_body{
+    overscroll-behavior: auto;
+    overflow: hidden;
 }
 @for $i from 1 through 10 {
     .page#{$i} {

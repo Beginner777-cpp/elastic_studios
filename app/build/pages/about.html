@@ -84,6 +84,7 @@
       // window.addEventListener('load', onLoad)
       function onLoad() {
           // loading_page.style = 'transition: 1s; transform: rotate(360deg) translate(100%, 100%)'
+          document.querySelector('body').style.overflow = 'hidden';
           let i = 0;
           var interval = setInterval(() => {
               percentage.innerHTML = `${++i}%`;
@@ -97,14 +98,15 @@
                           } else {
                               overlays[i].style.transform = 'translateY(200%)';
                           }
-                      }, 50 * i);
+                      }, 100 * i);
                   }
               }
           }, 20);
       }
       setTimeout(() => {
-          loading_page.style.display = 'none'
-      }, 2500)
+          loading_page.style.display = 'none';
+           document.querySelector('body').style.overflow = 'visible';
+      }, 3500)
       onLoad();
       
               

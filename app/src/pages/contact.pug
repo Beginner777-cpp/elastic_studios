@@ -108,6 +108,7 @@ html(lang="en")
             const percentage = document.querySelector('.inner_circle');
             // window.addEventListener('load', onLoad)
             function onLoad() {
+                document.querySelector('body').style.overflow = 'hidden';
                 // loading_page.style = 'transition: 1s; transform: rotate(360deg) translate(100%, 100%)'
                 let i = 0;
                 var interval = setInterval(() => {
@@ -122,13 +123,14 @@ html(lang="en")
                                 } else {
                                     overlays[i].style.transform = 'translateY(200%)';
                                 }
-                            }, 50 * i);
+                            }, 100 * i);
                         }
                     }
                 }, 20);
             }
             setTimeout(() => {
-                loading_page.style.display = 'none'
-            }, 2500)
+                loading_page.style.display = 'none';
+                document.querySelector('body').style.overflow = 'visible';
+            }, 3500)
             onLoad();
 

@@ -355,14 +355,14 @@ function onLoad() {
                     } else {
                         overlays[i].style.transform = 'translateY(200%)';
                     }
-                }, 50 * i);
+                }, 100 * i);
             }
         }
     }, 20);
 }
 setTimeout(() => {
     loading_page.style.display = 'none'
-}, 2500)
+}, 3500)
 onLoad();
 
 /*====================== /Loading page =========================*/

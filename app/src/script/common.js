@@ -56,7 +56,7 @@ window.addEventListener('keydown', (e) => {
 
 for (let i = 0; i < indicators.length; i++) {
     indicators[i].addEventListener('click', () => {
-        if (indicators[i].classList.contains('active')) { } else {
+        if (indicators[i].classList.contains('active')) {} else {
             if (i > activePage) {
                 for (let j = activePage; j < i; j++) {
                     move(nextBtn);
@@ -109,12 +109,13 @@ for (let i = 0; i < pages.length; i++) {
                             indicators[activePage - 1].classList.remove('active');
                             if (activePage > 0) {
                                 header.style.background = 'rgba(0, 0, 0, 0.6)';
-                            }
-                            else {
+                            } else {
                                 header.style.background = 'none';
                             }
                             if (activePage == 10) {
-                                let i = 0, j = 0, k = 0;
+                                let i = 0,
+                                    j = 0,
+                                    k = 0;
                                 var temp1 = setInterval(() => {
                                     document.querySelectorAll('.page11_number')[0].innerHTML = ++i;
                                     if (i == lastPage_nums[0]) {
@@ -156,8 +157,7 @@ for (let i = 0; i < pages.length; i++) {
                             indicators[activePage + 1].classList.remove('active');
                             if (activePage > 0) {
                                 header.style.background = 'rgba(0, 0, 0, 0.6)';
-                            }
-                            else {
+                            } else {
                                 header.style.background = 'none';
                             }
                         } else {
@@ -177,8 +177,7 @@ for (let i = 0; i < pages.length; i++) {
             }
             if (activePage == 0) {
                 document.querySelector('body').style = 'overscroll-behavior: auto';
-            }
-            else {
+            } else {
                 document.querySelector('body').style = 'overscroll-behavior: contain';
             }
             console.log(document.querySelector('body').style.overscrollBehavior);
@@ -189,6 +188,7 @@ for (let i = 0; i < pages.length; i++) {
         }
     })
 }
+
 function move(e) {
     if (e == prevBtn) {
         activePage--;
@@ -217,12 +217,13 @@ function move(e) {
     }
     if (activePage > 0) {
         header.style.background = 'rgba(0, 0, 0, 0.6)';
-    }
-    else {
+    } else {
         header.style.background = 'none';
     }
     if (activePage == 10) {
-        let i = 0, j = 0, k = 0;
+        let i = 0,
+            j = 0,
+            k = 0;
         var temp1 = setInterval(() => {
             document.querySelectorAll('.page11_number')[0].innerHTML = ++i;
             if (i == lastPage_nums[0]) {
@@ -243,8 +244,7 @@ function move(e) {
         }, 100);
         if (activePage == 0) {
             document.querySelector('body').style = 'overscroll-behavior: auto';
-        }
-        else {
+        } else {
             document.querySelector('body').style = 'overscroll-behavior: contain';
         }
     }
@@ -328,8 +328,41 @@ var header__content_top = document.querySelector('.header__nav');
 burger_icon.addEventListener('click', function () {
     if (!burger_icon.classList.contains('clicked')) {
         burger_icon.classList.add('clicked');
-    }
-    else {
+    } else {
         burger_icon.classList.remove('clicked');
     }
 })
+
+
+/*====================== Loading page =========================*/
+const loading_page = document.querySelector('.loading_page');
+const overlays = document.querySelectorAll('.overlay');
+const loading_animation = document.querySelector('.loading_animation');
+const percentage = document.querySelector('.inner_circle');
+// window.addEventListener('load', onLoad)
+function onLoad() {
+    // loading_page.style = 'transition: 1s; transform: rotate(360deg) translate(100%, 100%)'
+    let i = 0;
+    var interval = setInterval(() => {
+        percentage.innerHTML = `${++i}%`;
+        if (i == 100) {
+            clearInterval(interval);
+            loading_animation.style.opacity = 0;
+            for (let i = 0; i < overlays.length; i++) {
+                setTimeout(() => {
+                    if (i % 2 == 0) {
+                        overlays[i].style.transform = 'translateY(-200%)';
+                    } else {
+                        overlays[i].style.transform = 'translateY(200%)';
+                    }
+                }, 50 * i);
+            }
+        }
+    }, 20);
+}
+setTimeout(() => {
+    loading_page.style.display = 'none'
+}, 2500)
+onLoad();
+
+/*====================== /Loading page =========================*/

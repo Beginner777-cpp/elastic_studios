@@ -11,14 +11,20 @@ html(lang="en")
             include view/main.pug
             include view/footer.pug
         <div class="loading_page">
-            <div class="loading_animation"></div>
+            <div class="loading_animation">
+                <div class="inner_circle">0%</div>
+            </div>
+            <div class="bg">
+                <div class="overlay"></div>
+                <div class="overlay"></div>
+                <div class="overlay"></div>
+                <div class="overlay"></div>
+                <div class="overlay"></div>
+                <div class="overlay"></div>
+                <div class="overlay"></div>
+                <div class="overlay"></div>
+                <div class="overlay"></div>
+                <div class="overlay"></div>
+            </div>
         </div>
         script(src='script/common.js')
-        script(type="text/javascript").
-            const loading_page = document.querySelector('.loading_page')
-            //- window.addEventListener('load', onLoad)
-            function onLoad() {
-                loading_page.style = 'transition: 1s; transform: rotate(360deg) translate(100%, 100%)'
-                setTimeout(()=>{loading_page.style.display ='none'},1000)
-            }
-            setTimeout(()=>{onLoad()},1000)

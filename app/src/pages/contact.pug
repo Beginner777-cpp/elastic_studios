@@ -56,6 +56,9 @@ html(lang="en")
                             i(class="fas icon-location")
                         a.contact_mail(href="mailto: info@elastic-studios.com") info@elastic-studios.com
                             i(class="fas icon-mail")
+        <div class="loading_page">
+            <div class="loading_animation"></div>
+        </div>
         script(type="text/javascript").
             document.querySelector('.submit_btn').addEventListener('click', (e) => {
                 var name = document.querySelector('#contact_name').value;
@@ -85,4 +88,12 @@ html(lang="en")
                 }
 
             })
+
+            const loading_page = document.querySelector('.loading_page')
+            //- window.addEventListener('load', onLoad)
+            function onLoad() {
+                loading_page.style = 'transition: 1s; transform: rotate(360deg) translate(100%, 100%)'
+                setTimeout(()=>{loading_page.style.display ='none'},1000)
+            }
+            setTimeout(()=>{onLoad()},1000)
 

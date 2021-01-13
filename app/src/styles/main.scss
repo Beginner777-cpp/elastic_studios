@@ -163,7 +163,48 @@ button:hover {
 }
 
 /*==================================== /carousel ===================================*/
+.loading_page {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    background: #000;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* display: none; */
+}
 
+.loading_animation {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: rgb(2, 0, 36);
+    background: linear-gradient(286deg, rgba(2, 0, 36, 1) 0%, rgba(108, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
+    animation: loading 2s linear infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.loading_animation::after{
+    content: '';
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: #000;
+    display: block;
+
+}
+@keyframes loading {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
 
 @import 'layout/header.scss';
 @import 'layout/main.scss';

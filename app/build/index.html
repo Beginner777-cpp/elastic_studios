@@ -221,7 +221,18 @@
           <button class="fas next_btn"></button>
         </div>
       </div>
-    </div>
+    </div><div class="loading_page">
+<div class="loading_animation"></div>
+</div>
     <script src="script/common.js"></script>
+    <script type="text/javascript">
+      const loading_page = document.querySelector('.loading_page')
+      //- window.addEventListener('load', onLoad)
+      function onLoad() {
+          loading_page.style = 'transition: 1s; transform: rotate(360deg) translate(100%, 100%)'
+          setTimeout(()=>{loading_page.style.display ='none'},1000)
+      }
+      setTimeout(()=>{onLoad()},1000)
+    </script>
   </body>
 </html>

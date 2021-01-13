@@ -4,10 +4,21 @@ html(lang="en")
         meta(charset="UTF-8")
         meta(name="viewport" content="width=device-width, initial-scale=1.0")
         title Document
-        link(rel="stylesheet", href="styles/main.min.css")
+        link(rel="stylesheet" href="styles/main.min.css")
     body.index_body
         .carousel
             include view/header.pug
             include view/main.pug
             include view/footer.pug
+        <div class="loading_page">
+            <div class="loading_animation"></div>
+        </div>
         script(src='script/common.js')
+        script(type="text/javascript").
+            const loading_page = document.querySelector('.loading_page')
+            //- window.addEventListener('load', onLoad)
+            function onLoad() {
+                loading_page.style = 'transition: 1s; transform: rotate(360deg) translate(100%, 100%)'
+                setTimeout(()=>{loading_page.style.display ='none'},1000)
+            }
+            setTimeout(()=>{onLoad()},1000)

@@ -95,6 +95,9 @@ html(lang="en")
                 .book_btns
                     a.book_btn(href="#!" id="book_now") Book now 
                     a.book_btn.bookLater_btn(href="#!" id="book_now") Save and book later
+        <div class="loading_page">
+            <div class="loading_animation"></div>
+        </div>
         script(type="text/javascript").
             var orders = document.querySelectorAll('.select_btn');
             for(let i=0;i<orders.length;i++){
@@ -151,6 +154,14 @@ html(lang="en")
                 }
 
             })
+
+            const loading_page = document.querySelector('.loading_page')
+            //- window.addEventListener('load', onLoad)
+            function onLoad() {
+                loading_page.style = 'transition: 1s; transform: rotate(360deg) translate(100%, 100%)'
+                setTimeout(()=>{loading_page.style.display ='none'},1000)
+            }
+            setTimeout(()=>{onLoad()},1000)
 
 
 

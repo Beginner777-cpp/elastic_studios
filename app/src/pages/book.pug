@@ -95,20 +95,6 @@ html(lang="en")
                 .book_btns
                     a.book_btn(href="#!" id="book_now") Book now 
                     a.book_btn.bookLater_btn(href="#!" id="book_later") Save and book later
-        .loading_page
-            .loading_animation
-                .inner_circle 0%
-            .bg
-                .overlay
-                .overlay
-                .overlay
-                .overlay
-                .overlay
-                .overlay
-                .overlay
-                .overlay
-                .overlay
-                .overlay
         script(type="text/javascript").
             var orders = document.querySelectorAll('.select_btn');
             for(let i=0;i<orders.length;i++){
@@ -162,46 +148,7 @@ html(lang="en")
                     burger_icon.classList.remove('clicked');
                 }
             })
-            const loading_page = document.querySelector('.loading_page');
-            const overlays = document.querySelectorAll('.overlay');
-            const loading_animation = document.querySelector('.loading_animation');
-            const percentage = document.querySelector('.inner_circle');
-            window.addEventListener('load', ()=>{
-                window.scrollTo(0, 0);
-                console.log(window.scrollTop);
-            })
-            function onLoad() {
-                window.scrollTo({
-                    top: 0,
-                    behavior: "smooth"      
-                });
-                setTimeout(()=>{
-                    document.querySelector('body').style.overflow = 'hidden';
-                    // loading_page.style = 'transition: 1s; transform: rotate(360deg) translate(100%, 100%)'
-                    let i = 0;
-                    var interval = setInterval(() => {
-                        percentage.innerHTML = `${++i}%`;
-                        if (i == 100) {
-                            clearInterval(interval);
-                            loading_animation.style.opacity = 0;
-                            for (let i = 0; i < overlays.length; i++) {
-                                setTimeout(() => {
-                                    if (i % 2 == 0) {
-                                        overlays[i].style.transform = 'translateY(-200%)';
-                                    } else {
-                                        overlays[i].style.transform = 'translateY(200%)';
-                                    }
-                                }, 100 * i);
-                            }
-                        }
-                    }, 20);
-                },500)
-            }
-            setTimeout(() => {
-                loading_page.style.display = 'none';
-                document.querySelector('body').style.overflow = 'visible';
-            }, 4000)
-            onLoad();
+            
                         
 
 

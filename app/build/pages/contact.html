@@ -45,23 +45,7 @@
           <div class="contacts_bottom"><a class="contact_phone" href="tel: (234) 305-738-8420">(234) 305-738-8420<i class="fas icon-phone"></i></a><a class="contact_address" href="http://maps.google.com/?q=1287 Steve Hunt Road, Florida">1287 Steve Hunt Road, Florida<i class="fas icon-location"></i></a><a class="contact_mail" href="mailto: info@elastic-studios.com">info@elastic-studios.com<i class="fas icon-mail"></i></a></div>
         </div>
       </div>
-    </main><div class="loading_page">
-<div class="loading_animation">
-<div class="inner_circle">0%</div>
-</div>
-<div class="bg">
-<div class="overlay"></div>
-<div class="overlay"></div>
-<div class="overlay"></div>
-<div class="overlay"></div>
-<div class="overlay"></div>
-<div class="overlay"></div>
-<div class="overlay"></div>
-<div class="overlay"></div>
-<div class="overlay"></div>
-<div class="overlay"></div>
-</div>
-</div>
+    </main>
     <script type="text/javascript">
       document.querySelector('.submit_btn').addEventListener('click', (e) => {
           var name = document.querySelector('#contact_name').value;
@@ -91,37 +75,6 @@
           }
       
       })
-      const loading_page = document.querySelector('.loading_page');
-      const overlays = document.querySelectorAll('.overlay');
-      const loading_animation = document.querySelector('.loading_animation');
-      const percentage = document.querySelector('.inner_circle');
-      // window.addEventListener('load', onLoad)
-      function onLoad() {
-          document.querySelector('body').style.overflow = 'hidden';
-          // loading_page.style = 'transition: 1s; transform: rotate(360deg) translate(100%, 100%)'
-          let i = 0;
-          var interval = setInterval(() => {
-              percentage.innerHTML = `${++i}%`;
-              if (i == 100) {
-                  clearInterval(interval);
-                  loading_animation.style.opacity = 0;
-                  for (let i = 0; i < overlays.length; i++) {
-                      setTimeout(() => {
-                          if (i % 2 == 0) {
-                              overlays[i].style.transform = 'translateY(-200%)';
-                          } else {
-                              overlays[i].style.transform = 'translateY(200%)';
-                          }
-                      }, 100 * i);
-                  }
-              }
-          }, 20);
-      }
-      setTimeout(() => {
-          loading_page.style.display = 'none';
-          document.querySelector('body').style.overflow = 'visible';
-      }, 3500)
-      onLoad();
     </script>
   </body>
 </html>

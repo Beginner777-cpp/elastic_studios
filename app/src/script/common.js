@@ -5,6 +5,11 @@ const indicators = document.querySelectorAll('.indicator');
 const view_btn = document.querySelector('.view_btn');
 const back_btn = document.querySelector('.back_btn');
 const header = document.querySelector('.header');
+const screenWidth = screen.width;
+var checkNumber = 3;
+if (screenWidth < 600) {
+    checkNumber = 6;
+}
 var activePage = 0;
 var flag = true;
 var lastPage_nums = [25, 49, 36];
@@ -56,7 +61,7 @@ window.addEventListener('keydown', (e) => {
 
 for (let i = 0; i < indicators.length; i++) {
     indicators[i].addEventListener('click', () => {
-        if (indicators[i].classList.contains('active')) {} else {
+        if (indicators[i].classList.contains('active')) { } else {
             if (i > activePage) {
                 for (let j = activePage; j < i; j++) {
                     move(nextBtn);
@@ -99,7 +104,7 @@ for (let i = 0; i < pages.length; i++) {
             if (i < pages.length) {
                 if (pages[i].offsetTop < 0) {
                     if (i != pages.length - 1) {
-                        if (Math.abs(pages[i].offsetTop) > pages[i].clientHeight / 3) {
+                        if (Math.abs(pages[i].offsetTop) > pages[i].clientHeight / checkNumber) {
                             pages[i].style.transition = '1s';
                             pages[i].style.top = `-100%`;
                             pages[i + 1].style.transition = '1s';
@@ -112,29 +117,39 @@ for (let i = 0; i < pages.length; i++) {
                             } else {
                                 header.style.background = 'none';
                             }
+                            var temp1, temp2, temp3;
                             if (activePage == 10) {
                                 let i = 0,
                                     j = 0,
                                     k = 0;
-                                var temp1 = setInterval(() => {
+                                temp1 = setInterval(() => {
                                     document.querySelectorAll('.page11_number')[0].innerHTML = ++i;
                                     if (i == lastPage_nums[0]) {
                                         clearInterval(temp1);
                                     }
                                 }, 100);
-                                var temp2 = setInterval(() => {
+                                temp2 = setInterval(() => {
                                     document.querySelectorAll('.page11_number')[1].innerHTML = ++j;
                                     if (j == lastPage_nums[1]) {
                                         clearInterval(temp2);
                                     }
                                 }, 100);
-                                var temp3 = setInterval(() => {
+                                temp3 = setInterval(() => {
                                     document.querySelectorAll('.page11_number')[2].innerHTML = ++k;
                                     if (k == lastPage_nums[2]) {
                                         clearInterval(temp3);
                                     }
                                 }, 100);
+                            } else {
+                                clearInterval(temp1);
+                                clearInterval(temp2);
+                                clearInterval(temp3);
+                                console.log(temp1);
+                                document.querySelectorAll('.page11_number')[0].innerHTML = 0;
+                                document.querySelectorAll('.page11_number')[1].innerHTML = 0;
+                                document.querySelectorAll('.page11_number')[2].innerHTML = 0;
                             }
+
                         } else {
                             pages[i].style.transition = '1s';
                             pages[i].style.top = `0`;
@@ -147,7 +162,7 @@ for (let i = 0; i < pages.length; i++) {
                     }
                 } else {
                     if (i != 0) {
-                        if (Math.abs(pages[i].offsetTop) > pages[i].clientHeight / 3) {
+                        if (Math.abs(pages[i].offsetTop) > pages[i].clientHeight / checkNumber) {
                             pages[i].style.transition = '1s';
                             pages[i].style.top = `100%`;
                             pages[i - 1].style.transition = '1s';
@@ -175,12 +190,11 @@ for (let i = 0; i < pages.length; i++) {
                 pages[i].style.transition = '1s';
                 pages[i].style.top = `0`;
             }
-            if (activePage == 0) {
-                document.querySelector('body').style = 'overscroll-behavior: auto';
-            } else {
-                document.querySelector('body').style = 'overscroll-behavior: contain';
-            }
-            console.log(document.querySelector('body').style.overscrollBehavior);
+            // if (activePage == 0) {
+            //     document.querySelector('body').style = 'overscroll-behavior: auto';
+            // } else {
+            //     document.querySelector('body').style = 'overscroll-behavior: contain';
+            // }
             flag = false;
             setTimeout(() => {
                 flag = true;
@@ -220,33 +234,45 @@ function move(e) {
     } else {
         header.style.background = 'none';
     }
+    var temp1;
+    var temp2;
+    var temp3;
     if (activePage == 10) {
         let i = 0,
             j = 0,
             k = 0;
-        var temp1 = setInterval(() => {
+        temp1 = setInterval(() => {
             document.querySelectorAll('.page11_number')[0].innerHTML = ++i;
             if (i == lastPage_nums[0]) {
                 clearInterval(temp1);
             }
         }, 100);
-        var temp2 = setInterval(() => {
+        temp2 = setInterval(() => {
             document.querySelectorAll('.page11_number')[1].innerHTML = ++j;
             if (j == lastPage_nums[1]) {
                 clearInterval(temp2);
             }
         }, 100);
-        var temp3 = setInterval(() => {
+        temp3 = setInterval(() => {
             document.querySelectorAll('.page11_number')[2].innerHTML = ++k;
             if (k == lastPage_nums[2]) {
                 clearInterval(temp3);
             }
         }, 100);
-        if (activePage == 0) {
-            document.querySelector('body').style = 'overscroll-behavior: auto';
-        } else {
-            document.querySelector('body').style = 'overscroll-behavior: contain';
-        }
+        // if (activePage == 0) {
+        //     document.querySelector('body').style = 'overscroll-behavior: auto';
+        // } else {
+        //     document.querySelector('body').style = 'overscroll-behavior: contain';
+        // }
+    }
+    else {
+        clearInterval(temp1);
+        clearInterval(temp2);
+        clearInterval(temp3);
+        document.querySelectorAll('.page11_number')[0].innerHTML = 0;
+        document.querySelectorAll('.page11_number')[1].innerHTML = 0;
+        document.querySelectorAll('.page11_number')[2].innerHTML = 0;
+        console.log(temp1);
     }
 }
 view_btn.addEventListener('click', () => {
